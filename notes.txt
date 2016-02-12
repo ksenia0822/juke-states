@@ -1,0 +1,5 @@
+Questions:
+
+1. Changing ahref to    <a href="/#/albums">ALBUMS</a> not ui-sref?
+
+2. What happens when the page has already loaded and you click the sidebar link that routes to /#/albums? How is this different from (or similar to) what happens when you open a new tab, type /#/albums into the URL bar, and press enter?
