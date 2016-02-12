@@ -2,28 +2,16 @@
 
 /* ALBUMS (SINGULAR) CONTROLLER */
 
-juke.controller('AlbumCtrl', function ($scope, $log, PlayerFactory, AlbumFactory, $stateParams) {
+juke.controller('AlbumCtrl', function ($scope, PlayerFactory, theAlbum) {
 
-  var albumId = $stateParams.albumId
-
-  // $scope.$on('viewSwap', function (event, data) {
-  //   if (data.name !== 'oneAlbum') return $scope.showMe = false;
-  //   $scope.showMe = true;
-  //   AlbumFactory.fetchById(data.id)
+  $scope.album = theAlbum;
+  //var albumId = $stateParams.albumId;
+  // AlbumFactory.fetchById(albumId)
   //   .then(album => {
   //     $scope.album = album;
+  //     console.log($scope.album);
   //   })
   //   .catch($log.error);
-  // });
-
-
-
-  AlbumFactory.fetchById(albumId)
-    .then(album => {
-      $scope.album = album;
-      console.log($scope.album);
-    })
-    .catch($log.error);
   
 
   // main toggle
@@ -49,13 +37,22 @@ juke.controller('AlbumCtrl', function ($scope, $log, PlayerFactory, AlbumFactory
 
 /* ALBUMS (PLURAL) CONTROLLER */
 
-juke.controller('AlbumsCtrl', function ($scope, $log, albums) {
+juke.controller('AlbumsCtrl', function ($scope, albums) {
   $scope.albums = albums;
-
   // AlbumFactory.fetchAll()
   // .then(albums => {
   //   $scope.albums = albums;
   // })
   // .catch($log.error); // $log service can be turned on and off; also, pre-bound
-
 });
+
+
+
+
+
+
+
+
+
+
+

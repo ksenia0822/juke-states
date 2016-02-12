@@ -1,34 +1,16 @@
 'use strict';
-
-/* ARTISTS (PLURAL) CONTROLLER */
-
-juke.controller('ArtistsCtrl', function ($scope, $log, artists) {
-
-
-
-  // ArtistFactory.fetchAll()
-  // .then(artists => {
-  //   $scope.artists = artists;
-  // })
-  // .catch($log.error);
-  $scope.artists = artists;
-
-});
-
 /* ARTIST (SINGULAR) CONTROLLER */
 
-juke.controller('ArtistCtrl', function ($scope, $log, ArtistFactory, PlayerFactory, $stateParams) {
+juke.controller('ArtistCtrl', function ($scope, PlayerFactory, artist) {
+  $scope.artist = artist;
 
+  //var artistId = $stateParams.artistId;
 
-  var artistId = $stateParams.artistId;
-
-    ArtistFactory.fetchById(artistId)
-    .then(artist => {
-      $scope.artist = artist;
-    })
-    .catch($log.error);
-
-
+  //   ArtistFactory.fetchById(artistId)
+  //   .then(artist => {
+  //     $scope.artist = artist;
+  //   })
+  //   .catch($log.error);
 
   $scope.getCurrentSong = function () {
     return PlayerFactory.getCurrentSong();
@@ -51,5 +33,20 @@ juke.controller('ArtistCtrl', function ($scope, $log, ArtistFactory, PlayerFacto
   $scope.viewOneAlbum = function (album) {
     $rootScope.$broadcast('viewSwap', { name: 'oneAlbum', id: album._id });
   };
+
+});
+
+
+/* ARTISTS (PLURAL) CONTROLLER */
+
+juke.controller('ArtistsCtrl', function ($scope, artists) {
+
+   $scope.artists = artists;
+
+  // ArtistFactory.fetchAll()
+  // .then(artists => {
+  //   $scope.artists = artists;
+  // })
+  // .catch($log.error);
 
 });
